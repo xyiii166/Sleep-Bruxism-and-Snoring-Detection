@@ -1,0 +1,7 @@
+H: learned to use github together with pycharm
+  For github, mainly is about how to create repository and invite others
+  For using it together with code editor(ie. pycharm) is much harder. Need to 1. clone, 2. make changes, 3. commit(need to add different comments for each commit), 4. push. Pull is also needed when there is an update
+  advice for C:
+  try to make a new file over here, clone it to your local computer, make changes to it, and see if you can push it back. 
+  then make a new file over here again, see if you can pull it to your local computer, and then make changes
+  finally delete those two files, see if you can delete them on github
