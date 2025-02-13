@@ -30,21 +30,7 @@ if response.status_code == 200:
 else:
     raise Exception("Failed to download the audio file")
 mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
-#y is waveform, sr is sampling rate(Hz), n_mfcc is number of MFCC coefficients
-
-# Step 3: Plot MFCC
-# import numpy as np
-# import matplotlib.pyplot as plt
-# plt.figure(figsize=(10, 4))
-# librosa.display.specshow(mfccs, x_axis="time", sr=sr)
-# plt.colorbar()
-# plt.title("MFCC Features")
-# plt.xlabel("Time")
-# plt.ylabel("MFCC Coefficients")
-# plt.show()
-#
-# Step 4: Print the shape of MFCC features
-# print("MFCC Shape:", mfccs.shape)  # (Number of MFCCs, Time Frames)
+print(mfccs)
 
 
 
