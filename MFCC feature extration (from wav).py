@@ -19,6 +19,21 @@
 
 
 #verison 2, online url, original frame
+# import requests
+# import librosa
+# import io
+# import soundfile as sf
+# wav_url = "https://raw.githubusercontent.com/adrianagaler/Snoring-Detection/master/Snoring_Dataset_%4016000/snoring/1_0.wav"
+# response = requests.get(wav_url)
+# if response.status_code == 200:
+#     y, sr = sf.read(io.BytesIO(response.content))  # Read the WAV file
+#     print('sample rate is', sr)
+# else:
+#     raise Exception("Failed to download the audio file")
+# mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+# print(mfccs)
+
+#verison 3, online url, resampled frame
 import requests
 import librosa
 import io
@@ -27,9 +42,13 @@ wav_url = "https://raw.githubusercontent.com/adrianagaler/Snoring-Detection/mast
 response = requests.get(wav_url)
 if response.status_code == 200:
     y, sr = sf.read(io.BytesIO(response.content))  # Read the WAV file
+    y_new = librosa.resample(y, orig_sr=sr, target_sr=8000) #resampled y
+    sr_new=8000 #new sampling rate
+    print("Original Audio Shape:", y.shape)
+    print("Resampled Audio Shape:", y_new.shape)
 else:
     raise Exception("Failed to download the audio file")
-mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+mfccs = librosa.feature.mfcc(y=y_new, sr=sr_new, n_mfcc=13)
 print(mfccs)
 
 
