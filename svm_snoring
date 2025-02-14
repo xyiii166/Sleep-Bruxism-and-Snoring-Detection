@@ -7,7 +7,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 
 # 加载数据
-def load_audio_features(audio_files, labels):
+def load_audio_features(audio_files, labels):#这里合入mfcc
     features = []
     for file in audio_files:
         y, sr = librosa.load(file, sr=None)  # 读音频？
@@ -51,7 +51,7 @@ labels = [1] * len(snore_files) + [0] * len(non_snore_files)  # 1代表鼾声, 0
 # 提特征
 X, y = load_audio_features(audio_files, labels)
 
-# 划分数据集
+# 划分数据集-训练集（80%）测试集（20%）
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # 训练SVM
